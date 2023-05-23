@@ -2,7 +2,8 @@ import json
 import os
 
 class Concesionario:
-    dir = r"C:\Users\r3mus\OneDrive\Escritorio\Python\EscuelaMusk"
+    #i think the file_path should be in main, to keep the class clear and every method of the class be aout in main
+    dir = r""
     file_name = "concesionarios.json"
     file_path = os.path.join(dir, file_name)
 
@@ -12,7 +13,7 @@ class Concesionario:
         self.automoviles = []
 
     @staticmethod
-    def crearConcesionario():
+    def crearConcesionario(): #Create a new concessionaire
         nombre = input("Nombre: ")
         direccion = input("Direccion: ")
 
@@ -31,7 +32,7 @@ class Concesionario:
             json.dump(existing_data, file, indent=4)
 
     @staticmethod
-    def añadir_modelo_a_concesionario():
+    def añadir_modelo_a_concesionario(): #Add car to a concessionaire
         marca = input("Introduce la marca del vehiculo: ")
         modelo = input("Introduce el modelo del vehiculo: ")
         year = input("Introduce el año del vehiculo: ")
@@ -48,7 +49,7 @@ class Concesionario:
             json.dump(data, file, indent=4, cls=AutomovilEncoder)
 
     @staticmethod
-    def mostrar_automoviles_en_venta():
+    def mostrar_automoviles_en_venta(): #See al the cars in an concessionaire
         concesionario = input("Introduce el nombre del concesionario: ")
         with open(Concesionario.file_path, 'r') as file:
             data = json.load(file)
@@ -67,7 +68,7 @@ class Concesionario:
                 print(f"No se encontró el concesionario '{concesionario}'")
 
     @staticmethod
-    def buscar_automovil():
+    def buscar_automovil(): #Search for a car in an named concessionaire, using brand and model
         concesionario = input("Introduce el nombre del concesionario: ")
         marca = input("Introduce la marca del automóvil: ")
         modelo = input("Introduce el modelo del automóvil: ")
@@ -90,7 +91,7 @@ class Concesionario:
 
 
     @staticmethod
-    def vender_automovil():
+    def vender_automovil():#Sell car of the concessionaire
         concesionario = input("Introduce el nombre del concesionario: ")
         with open(Concesionario.file_path, 'r+') as file:
             data = json.load(file)
@@ -113,6 +114,8 @@ class Concesionario:
                     return
 
         print("El concesionario no existe.")
+        
+   #¿This should be in Automovil.py module?     
 class Automovil:
     def __init__(self, marca, modelo, year, precio):
         self.marca = marca
@@ -126,7 +129,7 @@ class AutomovilEncoder(json.JSONEncoder):
             return o.__dict__
         return super().default(o)
 
-
+#¿This should be main.py?
 while True:
     print("#### MENU #####")
     print("1. Crear concesionario.")
