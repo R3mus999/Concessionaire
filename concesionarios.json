@@ -1,0 +1,14 @@
+[
+    {
+        "nombre": "BMW",
+        "direccion": "Toledo",
+        "automoviles": [
+            {
+                "brand": "Bmw",
+                "model": "320",
+                "year": "2003",
+                "price": "2500"
+            }
+        ]
+    }
+]
