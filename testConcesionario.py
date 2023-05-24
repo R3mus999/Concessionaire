@@ -4,7 +4,7 @@ from Automovil import Automovil, CodificadorAutomovil
 
 class Concesionario:
 
-    dir = r"C:\Users\r3mus\OneDrive\Escritorio\Proyectos\Concesionario"
+    dir = ""
     nombre_archivo = "concesionarios.json"
     ruta_archivo = os.path.join(dir, nombre_archivo)
 
