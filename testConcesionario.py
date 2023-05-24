@@ -13,16 +13,6 @@ class Concesionario:
         self.nombre = nombre
         self.direccion = direccion
         self.automoviles = []
-    """
-    @staticmethod
-    def crear_nuevo_concesionario(nombre,direccion):
-
-
-        datos_existentes = [{"nombre": nombre, "direccion": direccion, "automoviles": []}]
-
-        with open(Concesionario.ruta_archivo, "w") as archivo:
-            json.dump(datos_existentes, archivo, indent=4)
-        """
 
     @staticmethod
     def crear_nuevo_concesionario(nombre,direccion):
